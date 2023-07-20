@@ -6,14 +6,16 @@ import openai
 from datetime import datetime, timedelta
 
 
-# Set up the URL you want to get news from
-news = "https://www.bbc.com/news"
-
-# Set up your OpenAI API credentials
-openai.api_key = "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"
-
-
 def summarize(body):
+    """
+    Summarizes the given text using the OpenAI GPT-3 model.
+
+    Args:
+        body (str): The text to be summarized.
+
+    Returns:
+        None
+    """
     print("Summarized by GPT3---")
     conversation = [
         {"role": "system", "content": "You are a helpful assistant."},
@@ -35,13 +37,35 @@ def summarize(body):
 
 
 class BBC:
+    """
+    Represents a BBC article.
+
+    Attributes:
+        url (str): The URL of the BBC article.
+        soup (BeautifulSoup): The BeautifulSoup object for parsing HTML content.
+        body (list): List of paragraphs constituting the article body.
+        title (str): The title of the article.
+    """
+
     def __init__(self, url: str):
+        """
+        Initializes a BBC article.
+
+        Args:
+            url (str): The URL of the BBC article.
+        """
         article = requests.get(url)
         self.soup = BeautifulSoup(article.content, "html.parser")
         self.body = self.get_body()
         self.title = self.get_title()
 
     def get_body(self) -> list:
+        """
+        Extracts the paragraphs constituting the article body.
+
+        Returns:
+            list: List of paragraphs constituting the article body.
+        """
         body_divs = self.soup.find_all("div", {"data-component": "text-block"})
         if body_divs:
             body = []
@@ -53,9 +77,21 @@ class BBC:
         return []
 
     def get_title(self) -> str:
+        """
+        Extracts the title of the article.
+
+        Returns:
+            str: The title of the article.
+        """
         title_element = self.soup.find("h1")
         return title_element.text.strip() if title_element else ""
 
+
+# Set up the URL you want to get news from
+news = "https://www.bbc.com/news"
+
+# Set up your OpenAI API credentials
+openai.api_key = "***********"
 
 # Make a request to the news website
 response = requests.get(news)
