@@ -157,7 +157,7 @@ for article in articles:
     print("Title:", article["title"])
     print("Summary:", article["summary"])
     print("Link:", article["link"])
-    parsed = BBC(article["link"])
+    parsed = Article(article["link"])
     body = " ".join(parsed.body)
     print("Full Body:")
     print(body)
