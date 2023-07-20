@@ -26,7 +26,7 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Check formatting with black  # This step runs black to check your Python formatting
       run: |
-        pip install black
+        pip install black[jupyter]
         black --check .
     - name: Check docstrings with pydocstyle  # This step runs pydocstyle to check your docstrings
       run: |
