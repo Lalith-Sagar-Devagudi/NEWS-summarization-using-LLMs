@@ -1,3 +1,11 @@
+"""
+This module scrapes news articles from the BBC website, summarizes them using the OpenAI GPT-3 model,
+and provides information about the articles.
+
+Author: Lalith Sagar, Devagudi
+Date: July 20, 2023
+"""
+
 import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
@@ -8,7 +16,7 @@ from datetime import datetime, timedelta
 
 def summarize(body):
     """
-    Summarizes the given text using the OpenAI GPT-3 model.
+    Summarize the given text using the OpenAI GPT-3 model.
 
     Args:
         body (str): The text to be summarized.
@@ -36,20 +44,23 @@ def summarize(body):
     print(summary.strip())
 
 
-class BBC:
+class Article:
     """
-    Represents a BBC article.
+    Represent an  article.
 
     Attributes:
-        url (str): The URL of the BBC article.
+        url (str): The URL of an article.
         soup (BeautifulSoup): The BeautifulSoup object for parsing HTML content.
         body (list): List of paragraphs constituting the article body.
         title (str): The title of the article.
+
+    Parameters:
+        url (str): The URL of an article.
     """
 
     def __init__(self, url: str):
         """
-        Initializes a BBC article.
+        Initialize an article.
 
         Args:
             url (str): The URL of the BBC article.
@@ -61,7 +72,7 @@ class BBC:
 
     def get_body(self) -> list:
         """
-        Extracts the paragraphs constituting the article body.
+        Extract the paragraphs constituting the article body.
 
         Returns:
             list: List of paragraphs constituting the article body.
@@ -78,7 +89,7 @@ class BBC:
 
     def get_title(self) -> str:
         """
-        Extracts the title of the article.
+        Extract the title of the article.
 
         Returns:
             str: The title of the article.
