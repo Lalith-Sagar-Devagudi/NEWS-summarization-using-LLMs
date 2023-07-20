@@ -1,9 +1,9 @@
 """
-This module scrapes news articles from the BBC website, summarizes them using the OpenAI GPT-3 model,
-and provides information about the articles.
+This module scrapes news articles from the BBC website, summarizes them using the OpenAI GPT-3 model, and provides information about the articles.
 
 Author: Lalith Sagar, Devagudi
 Date: July 20, 2023
+
 """
 
 import requests
