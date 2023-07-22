@@ -1,7 +1,7 @@
 """
 This file contains summarization functions using OpenAI models.
 
-Author: Your Name
+Author: Lalith Sagar, Devagudi
 Date: July 22, 2023
 """
 
