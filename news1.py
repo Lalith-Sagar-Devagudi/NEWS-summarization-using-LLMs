@@ -131,9 +131,7 @@ class NewsSummarizer:
 
 
 # Example usage:
-openai_api_key = (
-    "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"  # Replace with your API key
-)
+openai_api_key = "*****************"  # Replace with your API key
 
 summarizer = NewsSummarizer(url="https://www.bbc.com/news")
 summarizer.get_articles(
