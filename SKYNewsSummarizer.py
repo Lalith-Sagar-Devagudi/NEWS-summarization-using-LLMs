@@ -51,6 +51,7 @@ class SKYNewsSummarizer:
         Args:
             openai_api_key (str): The OpenAI API key for authentication.
             hours (int): The number of past hours to scrape articles from.
+            category (str): The category of news articles to scrape (optional).
             body (bool): Whether to include the full article body or not.
             summarized (bool): Whether to summarize the articles or not.
 
