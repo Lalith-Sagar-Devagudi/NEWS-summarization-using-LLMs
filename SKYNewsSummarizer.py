@@ -58,7 +58,6 @@ class SKYNewsSummarizer:
         Returns:
             None
         """
-
         # Handle category-specific scraping
         if category:
             self.url = self.url + "/" + category.lower()
